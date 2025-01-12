@@ -1,0 +1,76 @@
+## User-specific files
+# User-specific files (e.g., IDE settings, temp files, etc.)
+.idea/
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Dd]ist/
+[Dd]eploy/
+[Dd]ebug*/ 
+[Dd]ist*/
+
+## Dependency directories
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+## Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+## Windows Installer files (including vsix)
+*.vsix
+
+## Windows Installer files (including vsix)
+*.vssscc
+
+## JetBrains Rider
+.idea/
+
+## ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+## Npm packages (for web projects)
+node_modules/
+
+## TypeScript build output
+*.tsbuildinfo
+
+## Logs
+*.log
+
+## User-specific files for Visual Studio
+.vs/
+.vs2019/
+.vs2017/
+
+## Build directories
+bin/
+obj/
+
+## ASP.NET Core
+wwwroot/
+
+## Mac OS
+# .DS_Store is a file that is automatically created by macOS
+.DS_Store
+
+## Windows Installer
+Thumbs.db
+Desktop.ini
+
+## JetBrains Rider
+.idea/
+
+## User-specific files for Visual Studio
+.vs/
+.vscode/
