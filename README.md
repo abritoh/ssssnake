@@ -13,7 +13,7 @@
 - **Responsive controls**: Easy-to-use keyboard controls to guide the snake.
 - **Simple and intuitive UI**: Clean interface for an easy gameplay experience.
 
-- **MaxScore** value is saved locally in the application's user-configuration file at the following PATH:
+- **MaxScore** value is saved locally in the application's user-configuration file at the following path:
     - `C:\Users\<USER>\AppData\Local\ClusterBR\ssssssnake.exe_<ID>\1.0.0.0\user.config`
 
 ## Controls
@@ -23,15 +23,15 @@
   - **SPACE**: Info / PAUSE
   - **Letter M/m**: Show max-score / PAUSE
 
-## Screenshoots
+## Screenshots
 
-- The executable "**ssssssnake.exe**" can be found in the folder **dist** of this repository:
+- The executable "**ssssssnake.exe**" can be found in the **dist** folder of this repository:
 https://github.com/abritoh/ssssssnake
 
 
-![C#](./Resources/ssssssnake-max-score.png "ssssssnake v1.0")
+![C#](./Resources/ssssssnake-v1.0-2.png "ssssssnake v1.0")
 
-![C#](./Resources/ssssssnake-max-score-2.png "ssssssnake v1.0")
+![C#](./Resources/ssssssnake-max-score.png "ssssssnake v1.0")
 
 
 ## Requirements

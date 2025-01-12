@@ -157,8 +157,11 @@ namespace ClusterBR
                 }
 
                 try {
-                    bitmap.Save(Settings.SCREEN_SHOT_FILE_PATH, System.Drawing.Imaging.ImageFormat.Png);                    
-                } catch(Exception ex){ /*do-nothing*/}
+                    bitmap.Save(Settings.SCREEN_SHOT_FILE_PATH, System.Drawing.Imaging.ImageFormat.Png);
+                    Debug.WriteLine("(SaveMaxScoreAsScreenshot) Screenshot saved successfully at: " + Settings.SCREEN_SHOT_FILE_PATH);
+                } catch(Exception ex){
+                    Debug.WriteLine("[Exception] (SaveMaxScoreAsScreenshot) " + ex.ToString() );
+                }
             }
         }
 
