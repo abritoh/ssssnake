@@ -10,10 +10,8 @@
 ## Build results
 [Dd]ebug/
 [Dd]ebugPublic/
-[Dd]ist/
 [Dd]eploy/
 [Dd]ebug*/ 
-[Dd]ist*/
 
 ## Dependency directories
 # .NET Core
