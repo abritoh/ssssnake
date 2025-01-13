@@ -56,7 +56,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(10, 8, 10, 8);
             this.Name = "FormScore";
-            this.Text = "sssnake v1.0 ─ Max Score Info";
+            this.Text = "ssssssnake v1.0 ─ Max Score Info";
             this.Load += new System.EventHandler(this.FormMaxScore_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

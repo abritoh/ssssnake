@@ -211,7 +211,7 @@
             this.Font = new System.Drawing.Font("Snap ITC", 20.25F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SSSnakeForm";
-            this.Text = "sssnake v.10";
+            this.Text = "ssssssnake v1.0";
             this.StatusStripBottom.ResumeLayout(false);
             this.StatusStripBottom.PerformLayout();
             this.GroupBoxButtons.ResumeLayout(false);
