@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Media;
 using System.Text;
@@ -29,7 +30,7 @@ namespace ClusterBR
         private bool gameOver = false;
         #endregion
 
-        #region Contructor
+        #region Constructor
         public SSSnakeForm() {
 
             InitializeComponent();
@@ -93,12 +94,16 @@ namespace ClusterBR
 
         private void ShowAppInfo() {
             timerSnake.Stop();
+
             StringBuilder info = new StringBuilder();
             info.Append(Settings.APP_NAME + "\n\n");
+            info.Append("─0 bake the snake in the lake" + "\n\n");
             info.Append(Settings.ClusterBR + " 2025-0111\n\n");
-            info.Append( Settings.DEV_EMAIL + "\n\n");
-            info.Append("─0 bake the snake in the lake" + "\n\n\n");
+            info.Append(Settings.DEV_EMAIL + "\n\n");                        
+            info.Append("Dedicated to EBR02, whose creativity and spirit inspire greatness!" + "\n\n");
+
             MessageBox.Show(info.ToString(), "About " + Settings.APP_NAME, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             timerSnake.Start();
         }
 
@@ -219,6 +224,7 @@ namespace ClusterBR
 
             if (e.KeyCode == Keys.M) { ShowMaxScoreInfo(); return; }
             if (e.KeyCode == Keys.Space) { ShowAppInfo(); return; }
+            if (e.KeyCode == Keys.F1) { ShowAppInfo(); return; }
 
             if (e.KeyCode == Keys.Up && currentDirection != Directions.Down) { nextDirection = Directions.Up; return; }
             if (e.KeyCode == Keys.Down && currentDirection != Directions.Up) { nextDirection = Directions.Down; return; }
@@ -229,17 +235,20 @@ namespace ClusterBR
         protected override void OnPaint(PaintEventArgs e) {
 
             base.OnPaint(e);
-            Graphics g = e.Graphics;
+            Graphics g = e.Graphics;            
 
+            Pen gridPen = new Pen(Color.FromArgb(40, 1, 171, 43), 1.5f);
             //-- grid
             for (int y = 0; y < Settings.GRID_DIMENSION_Y; y++) {
                 for (int x = 0; x < Settings.GRID_DIMENSION_X; x++) {
-                    g.DrawRectangle(Pens.Green, x * Settings.GRID_ITEM_SIZE, y * Settings.GRID_ITEM_SIZE + Settings.BTN_BAR_AREA_HEIGHT, 
+                    g.DrawRectangle(gridPen, x * Settings.GRID_ITEM_SIZE, y * Settings.GRID_ITEM_SIZE + Settings.BTN_BAR_AREA_HEIGHT, 
                         Settings.GRID_ITEM_SIZE, Settings.GRID_ITEM_SIZE);
                 }
             }
+            gridPen.Dispose();
 
-            //-- snake
+            //-- snake            
+            HatchBrush snakeBrush = new HatchBrush(HatchStyle.DottedGrid, Color.YellowGreen, Color.Green);
             for (int i = 0; i < snake.Count; i++) {
                 var segment = snake[i];
                 if (i == 0) {
@@ -256,19 +265,25 @@ namespace ClusterBR
                     g.ResetTransform();
                 }
                 else {
-                    g.FillRectangle(Brushes.Green, segment.X * Settings.GRID_ITEM_SIZE, segment.Y * Settings.GRID_ITEM_SIZE + Settings.BTN_BAR_AREA_HEIGHT, 
-                        Settings.GRID_ITEM_SIZE, Settings.GRID_ITEM_SIZE);
+                    g.FillRectangle(snakeBrush, segment.X * Settings.GRID_ITEM_SIZE, segment.Y * Settings.GRID_ITEM_SIZE + Settings.BTN_BAR_AREA_HEIGHT, 
+                        Settings.GRID_ITEM_SIZE, Settings.GRID_ITEM_SIZE);                    
                 }
             }
+            snakeBrush.Dispose();
 
             //-- food
-            g.FillRectangle(Brushes.Red, pointFood.X * Settings.GRID_ITEM_SIZE, pointFood.Y * Settings.GRID_ITEM_SIZE + Settings.BTN_BAR_AREA_HEIGHT, 
+            Pen foodPen = new Pen(Color.Orange);
+            foodPen.Width = 3.0f; Brush foodBrush = new SolidBrush(Color.Red);
+            g.FillRectangle(foodBrush, pointFood.X * Settings.GRID_ITEM_SIZE, pointFood.Y * Settings.GRID_ITEM_SIZE + Settings.BTN_BAR_AREA_HEIGHT, 
                 Settings.GRID_ITEM_SIZE, Settings.GRID_ITEM_SIZE);
+            g.DrawRectangle(foodPen, pointFood.X * Settings.GRID_ITEM_SIZE, pointFood.Y * Settings.GRID_ITEM_SIZE + Settings.BTN_BAR_AREA_HEIGHT,
+                            Settings.GRID_ITEM_SIZE, Settings.GRID_ITEM_SIZE);            
 
             if (gameOver) {                
                 LabelMessage.ForeColor = Color.Red;
                 LabelMessage.Text = Settings.MSG_GAME_OVER;
             }
+            foodPen.Dispose(); foodBrush.Dispose();
         }
 
         private void GameTimer_Tick(object sender, EventArgs e) {

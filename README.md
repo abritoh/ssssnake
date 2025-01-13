@@ -31,6 +31,8 @@ https://github.com/abritoh/ssssssnake
 
 ![C#](./Resources/ssssssnake-v1.0-2.png "ssssssnake v1.0")
 
+![C#](./Resources/ssssssnake-about.png "ssssssnake v1.0")
+
 ![C#](./Resources/ssssssnake-max-score.png "ssssssnake v1.0")
 
 
